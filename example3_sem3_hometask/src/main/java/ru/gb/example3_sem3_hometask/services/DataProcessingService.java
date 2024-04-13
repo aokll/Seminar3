@@ -2,6 +2,8 @@ package ru.gb.example3_sem3_hometask.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import ru.gb.example3_sem3_hometask.domain.User;
 import ru.gb.example3_sem3_hometask.repository.UserRepository;
 
@@ -10,6 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequestMapping("/tasks")
 public class DataProcessingService {
 
     @Autowired
@@ -40,7 +43,6 @@ public class DataProcessingService {
                 .filter(user -> user.getAge() > age)
                 .collect(Collectors.toList());
     }
-
     public double calculateAverageAge(List<User> users) {
         return users.stream()
                 .mapToInt(User::getAge)

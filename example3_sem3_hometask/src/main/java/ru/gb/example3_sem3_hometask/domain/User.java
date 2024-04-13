@@ -29,5 +29,13 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+//    public User createUser(String name, int age, String email){
+//        User user = new User();
+//        user.setName(name);
+//        user.setAge(age);
+//        user.setEmail(email);
+//        return user;
+//    }
+
 }
 

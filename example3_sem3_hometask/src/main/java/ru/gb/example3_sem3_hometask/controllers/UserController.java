@@ -15,9 +15,7 @@ public class UserController {
     private RegistrationService service;
 
     @GetMapping
-    public List<User> userList() {
-        return service.getDataProcessingService().getRepository().getUsers();
-    }
+    public List<User> userList() { return service.getDataProcessingService().getRepository().getUsers(); }
 
     @PostMapping("/body")
     public String userAddFromBody(@RequestBody User user)
@@ -25,4 +23,13 @@ public class UserController {
         service.getDataProcessingService().getRepository().getUsers().add(user);
         return "User added from body!";
     }
+    @PostMapping
+    public String userAddFromParam(@RequestParam(required = false) String name,
+                                   @RequestParam(required = false) int age,
+                                   @RequestParam(required = false) String email)
+    {
+        service.processRegistration(name,age,email);
+        return "User added from param!";
+    }
 }
+/**/
